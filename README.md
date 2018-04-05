@@ -1,6 +1,6 @@
 special_word
 ============
-This project is aimed to shift texts (mainly latin letters) to some special-styled textsn (by shifts of unicode), which can be used in some occasions that cannot use other methods to change style (for example, Weibo).
+This project is aimed to shift texts (mainly latin letters) to some special-styled texts (by shifts of unicode), which can be used in some occasions where cannot use other methods to change style (for example, Weibo).
 
 Here is a simple example: "Hello, world!"—→"Ḥẹḷḷọ, ẉọṛḷḍ!"
 
