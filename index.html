@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>风格文本 / Stylish Text</title>
+		<script type="text/javascript">
+			function Pattern(name){
+				this.name=name;
+				this.dict = [];
+			}
+			Pattern.prototype.translation = function(origin){
+				var i;
+				var newText="";
+				for(i=0;i<origin.length;i++){
+					if(this.dict[origin.charAt(i)]!==undefined){
+						newText+=this.dict[origin.charAt(i)];
+					}else{
+						newText+=origin.charAt(i);
+					}
+				}
+				return newText;
+			}
+			function run(){
+				var originText = document.getElementById("originText").value;
+				var tempPattern = new Pattern("underdot");
+				tempPattern.dict= { "0": "0&#803;", "1": "1&#803;", "2": "2&#803;", "3": "3&#803;", "4": "4&#803;", "5": "5&#803;", "6": "6&#803;", "7": "7&#803;", "8": "8&#803;", "9": "9&#803;", A: "Ạ", B: "Ḅ", C: "C̣", D: "Ḍ", E: "Ẹ", F: "F̣", G: "G̣", H: "Ḥ", I: "Ị", J: "J̣", K: "Ḳ", L: "Ḷ", M: "Ṃ", N: "Ṇ", O: "Ọ", P: "P̣", Q: "Q̣̈", R: "Ṛ", S: "Ṣ", T: "Ṭ", U: "Ụ", V: "Ṿ", W: "Ẉ", X: "X̣", Y: "Ỵ", Z: "Ẓ", a: "ạ", b: "ḅ", c: "c̣", d: "ḍ", e: "ẹ", f: "f̣", g: "g̣", h: "ḥ", i: "ị", j: "j̣", k: "ḳ", l: "ḷ", m: "ṃ", n: "ṇ", o: "ọ", p: "p̣", q: "q̣", r: "ṛ", s: "ṣ", t: "ṭ", u: "ụ", v: "ṿ", w: "ẉ", x: "x̣", y: "ỵ", z: "ẓ", Ć: "Ć̣", ć: "ć̣", Č: "Č̣", č: "č̣", Ê: "Ệ", ê: "ệ", Ô: "Ộ", ô: "ộ", Ơ: "Ợ", ơ: "ợ", Ṡ: "Ṩ", ṡ: "ṩ", Ư: "Ự", ư: "ự"};
+				var after = tempPattern.translation(originText);
+				document.getElementById("output").innerHTML = after;
+			}
+
+		</script>
+	</head>
+	
+	<body>
+		<p>Currently only one style: ḍọṭṭẹḍ ṭẹx̣ṭ</p>
+		<p>
+			原文 / Original Text:<br />
+			<textarea rows="10" cols="50" id="originText">The original text here</textarea>
+		</p>
+		<button type="button" onclick="run()">提交 / Submit</button>
+		<p>
+			转换后 / Transformed Text:<br />
+			<div id="output">Ṭḥẹ ọṛịg̣ịṇạḷ ṭẹx̣ṭ ḥẹṛẹ</div>
+		</p>
+	</body>
+</html>
