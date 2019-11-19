@@ -4,17 +4,18 @@
 		<meta charset="UTF-8">
 		<script type="text/javascript">
 			function Pattern(name){
-				this.name=name;
+				this.name = name;
 				this.dict = [];
 			}
-			Pattern.prototype.translation = function(origin){
+
+			Pattern.prototype.translation = function(origin) {
 				var i;
-				var newText="";
-				for(i=0;i<origin.length;i++){
-					if(this.dict[origin.charAt(i)]!==undefined){
+				var newText = "";
+				for(i = 0; i < origin.length; i++) {
+					if (this.dict[origin.charAt(i)] !== undefined) {
 						newText+=this.dict[origin.charAt(i)];
-					}else{
-						newText+=origin.charAt(i);
+					} else {
+						newText += origin.charAt(i);
 					}
 				}
 				return newText;
@@ -28,13 +29,20 @@
 				return jsonObj;
 			}
 
-			function run(){
+			function run() {
 				var originText = document.getElementById("originText").value;
-				var tempPattern = new Pattern("underdot");
-				var url = "style.json";
-				tempPattern.dict = getJson(url)[0];
-				var after = tempPattern.translation(originText);
-				document.getElementById("output").innerHTML = after;
+				var url = "styles.json";
+				var jsonObj = getJson(url);
+				var i;
+				var output = document.getElementById("output")
+				output.innerHTML = "";
+				for (i = 0; i < jsonObj.length; i++) {
+					var tempPattern = new Pattern(jsonObj[i]["name"]);
+					tempPattern.dict = jsonObj[i];
+					var after = tempPattern.translation(originText);
+					output.innerHTML = output.innerHTML + "<br />" + after;
+				}
+				
 			}
 
 		</script>
