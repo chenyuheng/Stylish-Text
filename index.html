@@ -52,21 +52,21 @@
                     tempPattern.dict = jsonObj[i];
                     patterns.push(tempPattern);
                 }
+                run();
             }
 
 		</script>
 	</head>
 	
 	<body onload="load()">
-		<p>Currently only one style: ḍọṭṭẹḍ ṭẹx̣ṭ</p>
 		<p>
 			原文 / Original Text:<br />
-			<textarea rows="10" cols="50" id="originText">The original text here</textarea>
+			<textarea rows="10" cols="50" id="originText">Good good study, day day up!</textarea>
 		</p>
 		<button type="button" onclick="run()">提交 / Submit</button>
 		<p>
 			转换后 / Transformed Text:<br />
-			<div id="output">Ṭḥẹ ọṛịg̣ịṇạḷ ṭẹx̣ṭ ḥẹṛẹ</div>
+			<div id="output"></div>
 		</p>
 	</body>
 </html>
