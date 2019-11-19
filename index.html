@@ -31,7 +31,7 @@
 			function run(){
 				var originText = document.getElementById("originText").value;
 				var tempPattern = new Pattern("underdot");
-				var url = "https://nju.wiki/style.json";
+				var url = "style.json";
 				tempPattern.dict = getJson(url)[0];
 				var after = tempPattern.translation(originText);
 				document.getElementById("output").innerHTML = after;
